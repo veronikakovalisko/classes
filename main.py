@@ -99,24 +99,23 @@ class TVController:
         if N < len(CHANNELS) and N >= 0:
             self.ch = CHANNELS[N]
             return self.ch
-    def next_channel(self, channel ):
-        channel = str(channel)
+    def next_channel(self):
+        channel = str(self.ch)
         n = CHANNELS.index(channel)
         if n == len(CHANNELS) - 1:
             self.ch = CHANNELS[0]
         else:
             self.ch = CHANNELS[n + 1]
         return self.ch
-    def previous_channel(self, channel):
-        channel = str(channel)
+    def previous_channel(self):
+        channel = str(self.ch)
         n = CHANNELS.index(channel)
         if n == 0:
             self.ch = CHANNELS[len(CHANNELS) - 1]
         else:
             self.ch = CHANNELS[n - 1]
         return self.ch
-    def current_cannel(self, ch):
-        self.ch = ch
+    def current_cannel(self):
         return self.ch
     def is_exist(self, n):
         try:
@@ -138,8 +137,8 @@ if __name__ == '__main__':
     controller.first_channel()
     controller.last_channel()
     print(controller.turn_channel(input("enter number of channel")))
-    print(controller.next_channel(controller.ch))
-    print(controller.current_cannel(controller.ch))
+    print(controller.next_channel())
+    print(controller.current_cannel())
     print(controller.is_exist(input("enter number or name")))
 
 
